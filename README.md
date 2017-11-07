@@ -1,14 +1,18 @@
-angular-expressions
-===================
+bluerider
+=========
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Wassily_Kandinsky%2C_1911%2C_Reiter_%28Lyrishes%29%2C_oil_on_canvas%2C_94_x_130_cm%2C_Museum_Boijmans_Van_Beuningen.jpg" data-canonical-src="https://upload.wikimedia.org/wikipedia/commons/d/db/Wassily_Kandinsky%2C_1911%2C_Reiter_%28Lyrishes%29%2C_oil_on_canvas%2C_94_x_130_cm%2C_Museum_Boijmans_Van_Beuningen.jpg" width="200"/>
 
 **[angular's nicest part](https://github.com/angular/angular.js/blob/6b049c74ccc9ee19688bb9bbe504c300e61776dc/src/ng/parse.js) extracted as a standalone module for the browser and node.**
 
-[![build status](https://travis-ci.org/peerigon/angular-expressions.svg)](http://travis-ci.org/peerigon/angular-expressions)
+It is meant to be very similar to expressions of angular, all changes will be documented.
 
-**angular-expressions** exposes a `.compile()`-method which can be used to compile evaluable expressions:
+[![build status](https://travis-ci.org/edi9999/bluerider.svg)](http://travis-ci.org/edi9999/bluerider)
+
+**bluerider** exposes a `.compile()`-method which can be used to compile evaluable expressions:
 
 ```javascript
-var expressions = require("angular-expressions");
+var expressions = require("bluerider");
 
 evaluate = expressions.compile("1 + 1");
 evaluate(); // returns 2
@@ -41,10 +45,7 @@ Check out [their readme](http://docs.angularjs.org/guide/expression) for further
 Setup
 -----
 
-[![npm status](https://nodei.co/npm/angular-expressions.svg?downloads=true&stars=true&downloadRank=true)](https://npmjs.org/package/angular-expressions)
-
-
-<br />
+[![npm status](https://nodei.co/npm/bluerider.svg?downloads=true&stars=true&downloadRank=true)](https://npmjs.org/package/bluerider)
 
 Filters
 -------
@@ -80,7 +81,7 @@ expr({
 <br />
 
 API
-----
+---
 
 ### exports
 
@@ -122,13 +123,13 @@ The internal [Lexer](https://github.com/angular/angular.js/blob/6b049c74ccc9ee19
 
 The internal [Parser](https://github.com/angular/angular.js/blob/6b049c74ccc9ee19688bb9bbe504c300e61776dc/src/ng/parse.js#L390).
 
-----
+---
 
-### evaluate(scope?): *
+### evaluate(scope?): \*
 
 Evaluates the compiled `src` and returns the result of the expression. Property look-ups or assignments are executed on a given `scope`.
 
-### evaluate.assign(scope, value): *
+### evaluate.assign(scope, value): \*
 
 Tries to assign the given `value` to the result of the compiled expression on the given `scope` and returns the result of the assignment.
 
@@ -148,9 +149,7 @@ Comment from `angular.js/src/ng/parse.js`:
 
 ---
 
-Angular expressions are generally considered safe because these expressions only have direct
-access to $scope and locals. However, one can obtain the ability to execute arbitrary JS code by
-obtaining a reference to native JS functions such as the Function constructor.
+Angular expressions are generally considered safe because these expressions only have direct access to $scope and locals. However, one can obtain the ability to execute arbitrary JS code by obtaining a reference to native JS functions such as the Function constructor.
 
 As an example, consider the following Angular expression:
 
@@ -158,33 +157,22 @@ As an example, consider the following Angular expression:
 {}.toString.constructor(alert("evil JS code"))
 ```
 
-We want to prevent this type of access. For the sake of performance, during the lexing phase we
-disallow any "dotted" access to any member named "constructor".
+We want to prevent this type of access. For the sake of performance, during the lexing phase we disallow any "dotted" access to any member named "constructor".
 
-For reflective calls (a[b]) we check that the value of the lookup is not the Function constructor
-while evaluating the expression, which is a stronger but more expensive test. Since reflective
-calls are expensive anyway, this is not such a big deal compared to static dereferencing.
-This sandboxing technique is not perfect and doesn't aim to be. The goal is to prevent exploits
-against the expression language, but not to prevent exploits that were enabled by exposing
-sensitive JavaScript or browser apis on Scope. Exposing such objects on a Scope is never a good
-practice and therefore we are not even trying to protect against interaction with an object
-explicitly exposed in this way.
+For reflective calls (a[b]) we check that the value of the lookup is not the Function constructor while evaluating the expression, which is a stronger but more expensive test. Since reflective calls are expensive anyway, this is not such a big deal compared to static dereferencing. This sandboxing technique is not perfect and doesn't aim to be. The goal is to prevent exploits against the expression language, but not to prevent exploits that were enabled by exposing sensitive JavaScript or browser apis on Scope. Exposing such objects on a Scope is never a good practice and therefore we are not even trying to protect against interaction with an object explicitly exposed in this way.
 
-A developer could foil the name check by aliasing the Function constructor under a different
-name on the scope.
+A developer could foil the name check by aliasing the Function constructor under a different name on the scope.
 
-In general, it is not possible to access a Window object from an angular expression unless a
-window or some DOM object that has a reference to window is published onto a Scope.
+In general, it is not possible to access a Window object from an angular expression unless a window or some DOM object that has a reference to window is published onto a Scope.
 
 ---
 
 <br />
 
-
 Authorship
 ----------
-Kudos go entirely to the great angular.js team, it's their implementation!
 
+Kudos go entirely to the great angular.js team, it's their implementation!
 
 <br />
 
@@ -193,8 +181,8 @@ Contributing
 
 Suggestions and bug-fixes are always appreciated. Don't hesitate to create an issue or pull-request. All contributed code should pass
 
-1. the tests in node.js by running `npm test`
-2. the tests in all major browsers by running `npm run test-browser` and then visiting `http://localhost:8080/bundle`
+1.	the tests in node.js by running `npm test`
+2.	the tests in all major browsers by running `npm run test-browser` and then visiting `http://localhost:8080/bundle`
 
 <br />
 
@@ -204,6 +192,6 @@ License
 [Unlicense](http://unlicense.org/)
 
 Sponsors
--------
+--------
 
 [<img src="https://assets.peerigon.com/peerigon/logo/peerigon-logo-flat-spinat.png" width="150" />](https://peerigon.com)
