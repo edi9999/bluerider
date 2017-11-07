@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha test/main.test.js -R spec",
     "test-browser": "webpack-dev-server mocha\\!./test/main.test.js -d",
-    "posttest": "eslint --fix lib test"
+    "posttest": "eslint --fix lib test",
+    "preversion": "npm run test"
   },
   "keywords": [
     "angular",
@@ -24,6 +25,7 @@
     "eslint-config-peerigon": "^0.1.0",
     "mocha": "^2.3.2",
     "mocha-loader": "^0.7.1",
+    "webpack": "^3.8.1",
     "webpack-dev-server": "^1.11.0"
   },
   "repository": {
@@ -44,6 +46,6 @@
       "android-browser/latest"
     ]
   },
-  "author": "peerigon <developers@peerigon.com>",
+  "author": "Edgar Hipp",
   "license": "Unlicense"
 }
