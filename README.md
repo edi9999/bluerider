@@ -45,6 +45,19 @@ Check out [their readme](http://docs.angularjs.org/guide/expression) for further
 Setup
 -----
 
+Start webpack-dev-server with `./node_modules/.bin/webpack-dev-server --entry ./index.js`.
+
+Then load the following url in your browser `http://localhost:8080/`
+
+You can then access the compile method from the console to try it out. 
+
+Example : 
+
+```javascript
+var evaluate = compile("foo.bar == 'FooBar'");
+evaluate({ foo: { bar: "FooBar" }});
+```
+
 [![npm status](https://nodei.co/npm/bluerider.svg?downloads=true&stars=true&downloadRank=true)](https://npmjs.org/package/bluerider)
 
 Filters
