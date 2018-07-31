@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "Angular expressions as standalone module",
   "main": "./lib/main.js",
-  "types": "./index.d.ts"
+  "types": "./index.d.ts",
   "scripts": {
     "test": "mocha test/main.test.js -R spec",
     "test-browser": "webpack-dev-server mocha\\!./test/main.test.js -d",
